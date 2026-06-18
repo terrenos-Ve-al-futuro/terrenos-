@@ -1,0 +1,1212 @@
+/* ===================================================
+   TERRENOS PREMIUM — styles.css
+   Paleta: tierra cálida, verde olivo, arena, crema
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap');
+
+/* ---------- Variables ---------- */
+:root {
+  --tierra:     #7A5C3A;
+  --tierra-osc: #4E3620;
+  --arena:      #D9C4A0;
+  --crema:      #F5EFE4;
+  --verde:      #5A6B3A;
+  --verde-claro:#8FA06A;
+  --blanco:     #FDFAF5;
+  --gris-texto: #3A2E22;
+  --gris-suave: #9E8E78;
+
+  --fuente-titulo: 'Cormorant Garamond', serif;
+  --fuente-cuerpo: 'Jost', sans-serif;
+
+  --sombra: 0 8px 32px rgba(74, 54, 32, 0.15);
+  --radio: 4px;
+  --transicion: 0.3s ease;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--blanco);
+  color: var(--gris-texto);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+img { max-width: 100%; display: block; }
+a  { text-decoration: none; color: inherit; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--crema); }
+::-webkit-scrollbar-thumb { background: var(--arena); border-radius: 3px; }
+
+/* ===================================================
+   NAVBAR
+   =================================================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 70px;
+  background: rgba(253, 250, 245, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(122, 92, 58, 0.15);
+  transition: box-shadow var(--transicion);
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 20px rgba(74, 54, 32, 0.12);
+}
+
+.nav-logo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--tierra-osc);
+  letter-spacing: 0.04em;
+}
+
+.nav-logo span {
+  color: var(--verde);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gris-suave);
+  transition: color var(--transicion);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--tierra);
+  transition: width var(--transicion);
+}
+
+.nav-links a:hover { color: var(--tierra); }
+.nav-links a:hover::after { width: 100%; }
+
+/* Botón hamburguesa (móvil) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--tierra-osc);
+  border-radius: 2px;
+  transition: transform var(--transicion), opacity var(--transicion);
+}
+
+/* ===================================================
+   HERO
+   =================================================== */
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--tierra-osc);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/img1.svg'); /* Cambiar a img1.jpg */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.55);
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+
+.hero:hover .hero-bg { transform: scale(1); }
+
+/* Degradado inferior */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--blanco), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--crema);
+  padding: 0 1.5rem;
+  animation: fadeUp 1.2s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--arena);
+  margin-bottom: 1.2rem;
+}
+
+.hero-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 1.4rem;
+}
+
+.hero-titulo em {
+  font-style: italic;
+  color: var(--arena);
+}
+
+.hero-subtitulo {
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(245, 239, 228, 0.85);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+}
+
+.btn-primario {
+  display: inline-block;
+  padding: 0.85rem 2.4rem;
+  background: var(--tierra);
+  color: var(--crema);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--tierra);
+  border-radius: var(--radio);
+  transition: background var(--transicion), color var(--transicion);
+  cursor: pointer;
+}
+
+.btn-primario:hover {
+  background: transparent;
+  color: var(--crema);
+  border-color: var(--crema);
+}
+
+.btn-secundario {
+  display: inline-block;
+  padding: 0.85rem 2.4rem;
+  background: transparent;
+  color: var(--tierra);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--tierra);
+  border-radius: var(--radio);
+  transition: background var(--transicion), color var(--transicion);
+  cursor: pointer;
+}
+
+.btn-secundario:hover {
+  background: var(--tierra);
+  color: var(--crema);
+}
+
+/* ===================================================
+   SECCIONES GENERALES
+   =================================================== */
+section { padding: 100px 5%; }
+
+.section-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 0.8rem;
+}
+
+.section-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--tierra-osc);
+  margin-bottom: 1.2rem;
+}
+
+.section-desc {
+  max-width: 560px;
+  color: var(--gris-suave);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ===================================================
+   SECCIÓN: NOSOTROS / INTRO
+   =================================================== */
+#nosotros {
+  background: var(--blanco);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.nosotros-imagen {
+  position: relative;
+}
+
+.nosotros-imagen img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* Decoración geométrica */
+.nosotros-imagen::before {
+  content: '';
+  position: absolute;
+  top: -20px; left: -20px;
+  width: 160px; height: 160px;
+  border: 2px solid var(--arena);
+  border-radius: var(--radio);
+  z-index: -1;
+}
+
+.nosotros-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--fuente-titulo);
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--tierra);
+  line-height: 1;
+}
+
+.stat-lbl {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gris-suave);
+  margin-top: 0.3rem;
+}
+
+/* ===================================================
+   SECCIÓN: TERRENOS (GALERÍA)
+   =================================================== */
+#terrenos {
+  background: var(--crema);
+}
+
+.terrenos-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.terrenos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.terreno-card {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(74, 54, 32, 0.08);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+  cursor: pointer;
+}
+
+.terreno-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra);
+}
+
+.terreno-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.terreno-card:hover .terreno-card-img {
+  transform: scale(1.04);
+}
+
+.terreno-card-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.terreno-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--verde);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.terreno-card-body {
+  padding: 1.4rem;
+}
+
+.terreno-nombre {
+  font-family: var(--fuente-titulo);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--tierra-osc);
+  margin-bottom: 0.3rem;
+}
+
+.terreno-ubicacion {
+  font-size: 0.78rem;
+  color: var(--gris-suave);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.terreno-ubicacion::before {
+  content: '📍 ';
+  font-size: 0.7rem;
+}
+
+.terreno-features {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.1rem;
+}
+
+.feature-tag {
+  background: var(--crema);
+  border: 1px solid var(--arena);
+  color: var(--tierra);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.terreno-sup {
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--tierra);
+}
+
+.terreno-sup span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--gris-suave);
+  font-family: var(--fuente-cuerpo);
+  margin-left: 0.2rem;
+}
+
+/* ===================================================
+   MODAL DE TERRENO
+   =================================================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 10, 0.7);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+}
+
+.modal-overlay.activo {
+  display: flex;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-box {
+  background: var(--blanco);
+  border-radius: 6px;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-header {
+  position: relative;
+}
+
+.modal-header img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transicion);
+}
+
+.modal-cerrar:hover { background: rgba(0,0,0,0.8); }
+
+.modal-body {
+  padding: 2rem 2.5rem;
+}
+
+.modal-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--tierra-osc);
+  margin-bottom: 0.5rem;
+}
+
+.modal-ubicacion {
+  color: var(--gris-suave);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.modal-caracteristicas h4 {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 0.8rem;
+}
+
+.modal-caracteristicas ul {
+  list-style: none;
+}
+
+.modal-caracteristicas li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--crema);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gris-texto);
+}
+
+.modal-caracteristicas li::before {
+  content: '✓';
+  color: var(--verde);
+  font-weight: 600;
+}
+
+.modal-plano {
+  text-align: center;
+}
+
+.modal-plano h4 {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 0.8rem;
+}
+
+.modal-plano img {
+  border: 1px solid var(--arena);
+  border-radius: var(--radio);
+  cursor: zoom-in;
+  transition: transform var(--transicion);
+}
+
+.modal-plano img:hover { transform: scale(1.02); }
+
+.modal-acciones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ===================================================
+   SECCIÓN: MAPA / UBICACIÓN
+   =================================================== */
+#ubicacion {
+  background: var(--blanco);
+  padding-bottom: 0;
+}
+
+.ubicacion-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ubicacion-header {
+  margin-bottom: 2.5rem;
+}
+
+.mapa-wrapper {
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  height: 460px;
+  background: var(--crema);
+  position: relative;
+}
+
+/* El iframe del mapa real reemplaza este bloque */
+.mapa-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--crema), var(--arena));
+  color: var(--tierra-osc);
+  font-family: var(--fuente-titulo);
+  font-size: 1.4rem;
+  gap: 0.8rem;
+}
+
+.mapa-placeholder p {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.85rem;
+  color: var(--gris-suave);
+  font-weight: 400;
+}
+
+/* Iframe del mapa (Google Maps) */
+.mapa-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===================================================
+   SECCIÓN: CONTACTO
+   =================================================== */
+#contacto {
+  background: var(--tierra-osc);
+  color: var(--crema);
+  padding: 100px 5%;
+}
+
+.contacto-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+#contacto .section-eyebrow { color: var(--arena); }
+#contacto .section-titulo  { color: var(--crema); }
+#contacto .section-desc    { color: rgba(245, 239, 228, 0.7); }
+
+/* Tarjetas de contacto (WhatsApp y Facebook) */
+.contacto-canales {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.canal-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid rgba(217, 196, 160, 0.25);
+  border-radius: var(--radio);
+  background: rgba(255,255,255,0.06);
+  transition: background var(--transicion), border-color var(--transicion), transform var(--transicion);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--crema);
+}
+
+.canal-card:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--arena);
+  transform: translateX(6px);
+}
+
+.canal-icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.canal-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.canal-icon-wa  { background: #1DB954; }
+.canal-icon-fb  { background: #1877F2; }
+.canal-icon-emoji { background: rgba(255,255,255,0.1); }
+
+.canal-info strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+.canal-info span {
+  font-size: 0.8rem;
+  color: rgba(245, 239, 228, 0.6);
+}
+
+/* Formulario rápido */
+.contacto-form {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(217, 196, 160, 0.2);
+  border-radius: 6px;
+  padding: 2.5rem;
+}
+
+.form-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  color: var(--crema);
+  margin-bottom: 1.5rem;
+}
+
+.form-grupo {
+  margin-bottom: 1.2rem;
+}
+
+.form-grupo label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--arena);
+  margin-bottom: 0.4rem;
+}
+
+.form-grupo input,
+.form-grupo select,
+.form-grupo textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(217, 196, 160, 0.25);
+  border-radius: var(--radio);
+  color: var(--crema);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transicion);
+}
+
+.form-grupo input::placeholder,
+.form-grupo textarea::placeholder {
+  color: rgba(245, 239, 228, 0.35);
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus,
+.form-grupo textarea:focus {
+  border-color: var(--arena);
+}
+
+.form-grupo select option { background: var(--tierra-osc); }
+
+.form-grupo textarea { resize: vertical; min-height: 110px; }
+
+.btn-form {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--tierra);
+  color: var(--crema);
+  border: none;
+  border-radius: var(--radio);
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--transicion), transform var(--transicion);
+}
+
+.btn-form:hover {
+  background: var(--verde);
+  transform: translateY(-2px);
+}
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+.footer {
+  background: #1C1209;
+  color: rgba(245, 239, 228, 0.5);
+  text-align: center;
+  padding: 2.5rem 5%;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.footer strong {
+  color: var(--arena);
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: rgba(245, 239, 228, 0.45);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color var(--transicion);
+}
+
+.footer-nav a:hover { color: var(--arena); }
+
+/* ===================================================
+   ANIMACIONES DE ENTRADA (scroll)
+   =================================================== */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ===================================================
+   RESPONSIVE — TABLET
+   =================================================== */
+@media (max-width: 960px) {
+  #nosotros { grid-template-columns: 1fr; gap: 2.5rem; }
+  .terrenos-grid { grid-template-columns: repeat(2, 1fr); }
+  .contacto-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .modal-grid { grid-template-columns: 1fr; }
+}
+
+/* ===================================================
+   RESPONSIVE — MÓVIL
+   =================================================== */
+@media (max-width: 640px) {
+  section { padding: 70px 5%; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px; left: 0; right: 0;
+    background: var(--blanco);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--arena);
+  }
+
+  .nav-links.abierto { display: flex; }
+
+  .nav-links li a {
+    display: block;
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--crema);
+    font-size: 0.85rem;
+  }
+
+  .nav-toggle { display: flex; }
+
+  .terrenos-grid { grid-template-columns: 1fr; }
+
+  .modal-body { padding: 1.5rem; }
+  .modal-acciones { flex-direction: column; }
+
+  .nosotros-stats { gap: 1rem; }
+
+  .contacto-form { padding: 1.5rem; }
+}
+
+/* ===================================================
+   MINIATURAS DEL MODAL (galería)
+   =================================================== */
+.modal-thumbs {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.4);
+  flex-wrap: wrap;
+}
+
+.modal-thumb {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.modal-thumb:hover,
+.modal-thumb.activo {
+  opacity: 1;
+  border-color: var(--arena);
+}
+
+/* ===================================================
+   VIDEO RESPONSIVE (YouTube embed)
+   =================================================== */
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radio);
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===================================================
+   MAPAS MÚLTIPLES
+   =================================================== */
+.mapa-bloque {
+  margin-bottom: 3rem;
+}
+
+.mapa-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--tierra-osc);
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--verde);
+}
+
+.btn-mapa-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--tierra);
+  color: var(--crema);
+  border-radius: var(--radio);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--transicion);
+}
+
+.btn-mapa-link:hover {
+  background: var(--verde);
+}
+
+/* ===================================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   =================================================== */
+.wa-flotante {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  padding: 13px 20px 13px 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+
+.wa-flotante svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.wa-flotante:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+  animation: none;
+}
+
+/* Pulso suave para llamar la atención */
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45); }
+  50%       { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.75); }
+}
+
+/* En móvil solo muestra el icono, sin texto */
+@media (max-width: 480px) {
+  .wa-flotante {
+    padding: 14px;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+  }
+  .wa-flotante-texto { display: none; }
+}
+
+/* ===================================================
+   SECCIÓN OTROS PROYECTOS
+   =================================================== */
+.seccion-otros {
+  background: var(--tierra-osc);
+  padding: 100px 5%;
+}
+
+.seccion-otros .terreno-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(217,196,160,0.2);
+}
+
+.seccion-otros .terreno-card:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.seccion-otros .terreno-nombre,
+.seccion-otros .terreno-sup {
+  color: var(--crema);
+}
+
+.seccion-otros .terreno-ubicacion {
+  color: var(--arena);
+}
+
+.seccion-otros .feature-tag {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(217,196,160,0.3);
+  color: var(--arena);
+}
+
+/* ===================================================
+   NÚMERO AUXILIAR DE CONTACTO
+   =================================================== */
+.contacto-auxiliar {
+  margin-top: 1.2rem;
+  font-size: 0.78rem;
+  color: rgba(245,239,228,0.45);
+  letter-spacing: 0.04em;
+}
+
+.contacto-auxiliar a {
+  color: rgba(245,239,228,0.6);
+  text-decoration: underline;
+  transition: color var(--transicion);
+}
+
+.contacto-auxiliar a:hover {
+  color: var(--arena);
+}
+
+/* ===================================================
+   GALERÍA DEL MODAL (sin imagen grande arriba)
+   =================================================== */
+.modal-galeria {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #1a1108;
+  flex-wrap: wrap;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-galeria-img {
+  height: 160px;
+  width: auto;
+  max-width: 280px;
+  object-fit: cover;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.75;
+  transition: opacity 0.2s, border-color 0.2s, transform 0.2s;
+  flex: 1;
+  min-width: 120px;
+}
+
+.modal-galeria-img:hover,
+.modal-galeria-img.activo {
+  opacity: 1;
+  border-color: var(--arena);
+  transform: scale(1.02);
+}
+
+/* ===================================================
+   MAPAS COMPACTOS CON FOTO LATERAL
+   =================================================== */
+.mapa-con-foto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.mapa-wrapper.mapa-pequeno {
+  height: 260px;
+}
+
+.mapa-placeholder {
+  font-size: 1rem;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.mapa-foto-lateral {
+  border-radius: var(--radio);
+  overflow: hidden;
+  height: 260px;
+}
+
+.mapa-foto-lateral img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.mapa-foto-lateral img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 640px) {
+  .mapa-con-foto {
+    grid-template-columns: 1fr;
+  }
+  .mapa-foto-lateral {
+    height: 180px;
+  }
+  .modal-galeria-img {
+    height: 120px;
+  }
+}
+
+/* ===================================================
+   VISOR DE PDF EMBEBIDO
+   =================================================== */
+.pdf-responsive {
+  width: 100%;
+  height: 480px;
+  border-radius: var(--radio);
+  overflow: hidden;
+  border: 1px solid var(--arena);
+}
+
+.pdf-responsive iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 640px) {
+  .pdf-responsive { height: 320px; }
+}

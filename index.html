@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Terrenos en venta en Querétaro. San Miguel Amazcala, Pie de Gallo, Santa María Begoña y más. Posesión inmediata, todos los servicios." />
+  <title>Terrenos en Venta — Querétaro</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#inicio" class="nav-logo">
+      Terrenos<span>Qro</span>
+      <!-- ↑ Cambia por tu nombre de negocio o logo -->
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#terrenos">Mis terrenos</a></li>
+      <li><a href="#otros">Otros proyectos</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg" style="background-image: url('images/1.1.jpg');"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Querétaro, México</p>
+      <h1 class="hero-titulo">Terrenos con<br><em>visión de futuro</em></h1>
+      <p class="hero-subtitulo">
+        Lotes residenciales en zonas de alta plusvalía. Posesión inmediata,
+        todos los servicios. Invierte en tierra, invierte en tu futuro.
+      </p>
+      <a href="#terrenos" class="btn-primario">Ver terrenos disponibles</a>
+    </div>
+  </section>
+
+
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="nosotros-imagen reveal">
+      <img src="images/1.1.jpg" alt="Terreno en Querétaro" />
+    </div>
+    <div class="nosotros-texto">
+      <p class="section-eyebrow reveal">¿Quiénes somos?</p>
+      <h2 class="section-titulo reveal reveal-delay-1">Trato directo<br>con el dueño</h2>
+      <p class="section-desc reveal reveal-delay-2">
+        Somos propietarios directos de terrenos en las mejores zonas de
+        Querétaro. Sin intermediarios, sin comisiones ocultas. Te ofrecemos
+        lotes con posesión inmediata, todos los servicios disponibles y
+        facilidades de pago accesibles para tu proyecto de vida.
+        <!-- ↑ Cambia por tu presentación real -->
+      </p>
+      <div class="nosotros-stats reveal reveal-delay-3">
+        <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Zonas propias</div></div>
+        <div class="stat"><div class="stat-num">$2K</div><div class="stat-lbl">Para apartar</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Propiedad privada</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       MIS TERRENOS (los 3 propios)
+  ================================================= -->
+  <section id="terrenos">
+    <div class="terrenos-header">
+      <div>
+        <p class="section-eyebrow">Propiedades propias</p>
+        <h2 class="section-titulo">Mis terrenos disponibles</h2>
+      </div>
+      <a href="#contacto" class="btn-secundario">Consultar disponibilidad</a>
+    </div>
+
+    <div class="terrenos-grid">
+
+      <!-- TARJETA 1: AMAZCALA -->
+      <div class="terreno-card reveal" onclick="abrirModal(0)">
+        <div class="terreno-card-img-wrap">
+          <img class="terreno-card-img" src="images/p1.png" alt="Plano San Miguel Amazcala" />
+          <span class="terreno-badge">Disponible</span>
+        </div>
+        <div class="terreno-card-body">
+          <h3 class="terreno-nombre">San Miguel Amazcala</h3>
+          <p class="terreno-ubicacion">El Marqués, Querétaro</p>
+          <div class="terreno-features">
+            <span class="feature-tag">120 m²</span>
+            <span class="feature-tag">Posesión inmediata</span>
+            <span class="feature-tag">Alta plusvalía</span>
+          </div>
+          <p class="terreno-sup">$389,000 <span>crédito disponible</span></p>
+        </div>
+      </div>
+
+      <!-- TARJETA 2: PIE DE GALLO -->
+      <div class="terreno-card reveal reveal-delay-1" onclick="abrirModal(1)">
+        <div class="terreno-card-img-wrap">
+          <img class="terreno-card-img" src="images/p2.jpg" alt="Plano Pie de Gallo" />
+          <span class="terreno-badge">Disponible</span>
+        </div>
+        <div class="terreno-card-body">
+          <h3 class="terreno-nombre">Pie de Gallo</h3>
+          <p class="terreno-ubicacion">Santa Rosa, Querétaro</p>
+          <div class="terreno-features">
+            <span class="feature-tag">120 m²</span>
+            <span class="feature-tag">8 × 15 m</span>
+            <span class="feature-tag">Trato directo</span>
+          </div>
+          <p class="terreno-sup">$355,000 <span>crédito a 6 años</span></p>
+        </div>
+      </div>
+
+      <!-- TARJETA 3: BEGOÑA -->
+      <div class="terreno-card reveal reveal-delay-2" onclick="abrirModal(2)">
+        <div class="terreno-card-img-wrap">
+          <img class="terreno-card-img" src="images/p3.png" alt="Plano Santa María Begoña" />
+          <span class="terreno-badge">Disponible</span>
+        </div>
+        <div class="terreno-card-body">
+          <h3 class="terreno-nombre">Santa María Begoña</h3>
+          <p class="terreno-ubicacion">El Marqués, Querétaro</p>
+          <div class="terreno-features">
+            <span class="feature-tag">200 m²</span>
+            <span class="feature-tag">Propiedad privada</span>
+            <span class="feature-tag">Zona estratégica</span>
+          </div>
+          <p class="terreno-sup">$270,000 <span>· contado $220,000</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="terrenos-cta reveal" style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(90, 107, 58, 0.08); border-radius: 8px;">
+      <p style="font-size: 0.9rem; color: var(--gris-suave); margin-bottom: 1rem;">¿Encontraste el que te interesa?</p>
+      <a href="https://wa.me/qr/ZXWAYBJFMKW4J1" target="_blank" rel="noopener" class="btn-primario">💬 Contactar por WhatsApp</a>
+    </div>
+  </section>
+
+
+  <!-- ================================================
+       OTROS PROYECTOS (3 de otras inmobiliarias)
+  ================================================= -->
+  <section id="otros" class="seccion-otros">
+    <div class="terrenos-header">
+      <div>
+        <p class="section-eyebrow" style="color:var(--arena);">Más oportunidades</p>
+        <h2 class="section-titulo" style="color:var(--crema);">Otros proyectos</h2>
+        <p class="section-desc" style="color:rgba(245,239,228,0.7); margin-top:.5rem;">
+          Proyectos adicionales que también promociono. Contáctame para más información.
+        </p>
+      </div>
+      <a href="#contacto" class="btn-primario">Consultar</a>
+    </div>
+
+    <div class="terrenos-grid" style="margin-top:2rem;">
+
+      <!-- TARJETA 4: AMAZCALA 2 (200m²) -->
+      <div class="terreno-card reveal" onclick="abrirModal(3)">
+        <div class="terreno-card-img-wrap">
+          <img class="terreno-card-img" src="images/4.1.jpg" alt="San Miguel Amazcala 200m²" />
+          <span class="terreno-badge" style="background:var(--verde);">Recién disponible</span>
+        </div>
+        <div class="terreno-card-body">
+          <h3 class="terreno-nombre">San Miguel Amazcala</h3>
+          <p class="terreno-ubicacion">El Marqués, Querétaro</p>
+          <div class="terreno-features">
+            <span class="feature-tag">200 m²</span>
+            <span class="feature-tag">Alta plusvalía</span>
+            <span class="feature-tag">Zona en desarrollo</span>
+          </div>
+          <p class="terreno-sup">$240,000 <span>crédito disponible</span></p>
+        </div>
+      </div>
+
+      <!-- TARJETA 5: LA SOLANA -->
+      <div class="terreno-card reveal reveal-delay-1" onclick="abrirModal(4)">
+        <div class="terreno-card-img-wrap">
+          <img class="terreno-card-img" src="images/5.1.jpg" alt="La Solana Santa Rosa Jáuregui" />
+          <span class="terreno-badge" style="background:var(--verde);">Recién disponible</span>
+        </div>
+        <div class="terreno-card-body">
+          <h3 class="terreno-nombre">La Solana</h3>
+          <p class="terreno-ubicacion">Santa Rosa Jáuregui, Querétaro</p>
+          <div class="terreno-features">
+            <span class="feature-tag">150 m²</span>
+            <span class="feature-tag">10 × 15 m</span>
+            <span class="feature-tag">Aparta con $5K</span>
+          </div>
+          <p class="terreno-sup">Desde $90,000 <span>· incrementa según m²</span></p>
+        </div>
+      </div>
+
+      <!-- TARJETA 6: TLACOTE EL BAJO -->
+      <div class="terreno-card reveal reveal-delay-2" onclick="abrirModal(5)">
+        <div class="terreno-card-img-wrap">
+          <img class="terreno-card-img" src="images/6.1.jpg" alt="Tlacote el Bajo" />
+          <span class="terreno-badge" style="background:var(--verde);">Recién disponible</span>
+        </div>
+        <div class="terreno-card-body">
+          <h3 class="terreno-nombre">Tlacote el Bajo</h3>
+          <p class="terreno-ubicacion">Tlacote el Bajo, Querétaro</p>
+          <div class="terreno-features">
+            <span class="feature-tag">2 hectáreas</span>
+            <span class="feature-tag">Precio a tratar</span>
+            <span class="feature-tag">Gran inversión</span>
+          </div>
+          <p class="terreno-sup">$15,500,000 <span>· precio a tratar</span></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- UBICACIÓN -->
+  <section id="ubicacion">
+    <div class="ubicacion-inner">
+      <div class="ubicacion-header reveal">
+        <p class="section-eyebrow">¿Dónde estamos?</p>
+        <h2 class="section-titulo">Ubicación de los terrenos</h2>
+        <p class="section-desc">Tres zonas estratégicas en Querétaro con acceso a servicios y alto potencial de plusvalía.</p>
+      </div>
+
+      <div class="mapa-bloque reveal">
+        <h3 class="mapa-titulo">San Miguel Amazcala — El Marqués</h3>
+        <div class="mapa-con-foto">
+          <div class="mapa-wrapper mapa-pequeno">
+            <!-- //cambiar — pega el iframe de Google Maps para Amazcala -->
+            <div class="mapa-placeholder">
+              <span style="font-size:1.8rem;">🗺️</span>
+              San Miguel Amazcala
+              <a href="https://goo.gl/maps/wcpbvxoWVT62Tooa6?g_st=aw" target="_blank" rel="noopener" class="btn-mapa-link">Ver en Google Maps →</a>
+            </div>
+          </div>
+          <div class="mapa-foto-lateral">
+            <img src="images/1.1.jpg" alt="San Miguel Amazcala" />
+          </div>
+        </div>
+      </div>
+
+      <div class="mapa-bloque reveal">
+        <h3 class="mapa-titulo">Pie de Gallo — Santa Rosa</h3>
+        <div class="mapa-con-foto">
+          <div class="mapa-wrapper mapa-pequeno">
+            <!-- //cambiar — pega el iframe de Google Maps para Pie de Gallo -->
+            <div class="mapa-placeholder">
+              <span style="font-size:1.8rem;">🗺️</span>
+              Pie de Gallo, Santa Rosa
+              <a href="https://maps.app.goo.gl/xA8v5DUSXx7b4MX47" target="_blank" rel="noopener" class="btn-mapa-link">Ver en Google Maps →</a>
+            </div>
+          </div>
+          <div class="mapa-foto-lateral">
+            <img src="images/2.1.jpg" alt="Pie de Gallo" />
+          </div>
+        </div>
+      </div>
+
+      <div class="mapa-bloque reveal">
+        <h3 class="mapa-titulo">Santa María Begoña — El Marqués</h3>
+        <div class="mapa-con-foto">
+          <div class="mapa-wrapper mapa-pequeno">
+            <!-- //cambiar — pega el iframe de Google Maps para Begoña -->
+            <div class="mapa-placeholder">
+              <span style="font-size:1.8rem;">🗺️</span>
+              Santa María Begoña
+              <a href="https://maps.app.goo.gl/Ka6xn3qmEria6B579" target="_blank" rel="noopener" class="btn-mapa-link">Ver en Google Maps →</a>
+            </div>
+          </div>
+          <div class="mapa-foto-lateral">
+            <img src="images/3.1.jpg" alt="Santa María Begoña" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="contacto-inner">
+      <div>
+        <p class="section-eyebrow">Contáctanos</p>
+        <h2 class="section-titulo">¿Te interesa<br>algún lote?</h2>
+        <p class="section-desc">Escríbenos directamente. Trato directo con el dueño, sin intermediarios.</p>
+
+        <div class="contacto-canales">
+          <a class="canal-card" href="https://wa.me/qr/ZXWAYBJFMKW4J1" target="_blank" rel="noopener">
+            <div class="canal-icon canal-icon-wa"><span>💬</span></div>
+            <div class="canal-info">
+              <strong>WhatsApp</strong>
+              <span>442 594 9691 · Respuesta rápida</span>
+            </div>
+          </a>
+
+          <a class="canal-card" href="https://www.facebook.com/share/p/18eeBStmkR/" target="_blank" rel="noopener">
+            <!-- ↑ Link temporal al post — cambia por tu perfil/página cuando lo tengas -->
+            <div class="canal-icon canal-icon-fb"><span>📘</span></div>
+            <div class="canal-info">
+              <strong>Facebook</strong>
+              <span>Síguenos y escríbenos</span>
+            </div>
+          </a>
+
+          <a class="canal-card" href="tel:+524425949691">
+            <div class="canal-icon canal-icon-emoji"><span>📞</span></div>
+            <div class="canal-info">
+              <strong>Llamada directa</strong>
+              <span>442 594 9691</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Número auxiliar discreto -->
+        <p class="contacto-auxiliar">
+          Número alternativo: <a href="tel:+524422507124">442 250 7124</a>
+        </p>
+      </div>
+
+      <div class="contacto-form reveal">
+        <p class="form-titulo">Envíanos un mensaje</p>
+        <form id="formContacto">
+          <div class="form-grupo">
+            <label for="nombre">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+          </div>
+          <div class="form-grupo">
+            <label for="telefono">Teléfono / WhatsApp *</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+52 442 000 0000" required />
+          </div>
+          <div class="form-grupo">
+            <label for="terreno">Terreno de interés</label>
+            <select id="terreno" name="terreno">
+              <option value="San Miguel Amazcala — $389,000">San Miguel Amazcala — $389,000
+              <option value="Pie de Gallo — $355,000">Pie de Gallo — $355,000</option>
+              <option value="Santa María Begoña — $270,000">Santa María Begoña — $270,000</option>
+              <option value="San Miguel Amazcala 200m² — $240,000">San Miguel Amazcala 200m² — $240,000</option>
+              <option value="La Solana — Desde $90,000">La Solana — Desde $90,000</option>
+              <option value="Tlacote el Bajo — $15,500,000">Tlacote el Bajo — $15,500,000</option>
+              <option value="Más información general">Más información general</option>
+            </select>
+          </div>
+          <div class="form-grupo">
+            <label for="mensaje">Mensaje (opcional)</label>
+            <textarea id="mensaje" name="mensaje" placeholder="¿Tienes alguna pregunta o comentario?"></textarea>
+          </div>
+          <button type="submit" class="btn-form">Enviar por WhatsApp →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <button class="modal-cerrar" id="modalCerrar" aria-label="Cerrar">✕</button>
+        <div class="modal-galeria" id="modalThumbs"></div>
+      </div>
+      <div class="modal-body">
+        <h2 class="modal-titulo" id="modalNombre"></h2>
+        <p class="modal-ubicacion" id="modalUbicacion"></p>
+        <p id="modalDesc" style="font-size:.9rem; color:var(--gris-suave); line-height:1.8;"></p>
+
+        <div class="modal-grid">
+          <div class="modal-caracteristicas">
+            <h4>Características y precios</h4>
+            <ul id="modalCaracteristicas"></ul>
+          </div>
+          <div class="modal-plano" id="modalPlanoWrap">
+            <h4>Plano del terreno</h4>
+            <img id="modalPlano" src="" alt="Plano del terreno" />
+          </div>
+        </div>
+
+        <div id="modalVideoWrap" style="display:none; margin-top:1.5rem;">
+          <h4 style="font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; color:var(--verde); margin-bottom:.8rem;">Video del terreno</h4>
+          <div class="video-responsive">
+            <iframe id="modalVideo" src="" title="Video del terreno" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div id="modalPdfWrap" style="display:none; margin-top:1.5rem;">
+          <h4 style="font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; color:var(--verde); margin-bottom:.8rem;">Plano en PDF</h4>
+          <div class="pdf-responsive">
+            <iframe id="modalPdfVisor" src="" title="Plano PDF" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <div class="modal-acciones">
+          <a id="btnModalWa" href="#" target="_blank" rel="noopener" class="btn-primario">💬 Preguntar por WhatsApp</a>
+          <a id="btnModalMapa" href="#" target="_blank" rel="noopener" class="btn-secundario" style="display:none;">🗺️ Ver ubicación</a>
+          <button onclick="cerrarModal()" class="btn-secundario">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <nav class="footer-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#terrenos">Mis terrenos</a>
+      <a href="#otros">Otros proyectos</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <p>© 2025 <strong>TerrenosQro</strong> — Todos los derechos reservados.
+      <!-- ↑ Cambia por el nombre de tu negocio -->
+    </p>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a class="wa-flotante" href="https://wa.me/qr/ZXWAYBJFMKW4J1" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.027 7.8L0 32l8.427-2.01A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.771-1.854l-.486-.29-5.006 1.194 1.227-4.878-.318-.5A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.846c-.398-.199-2.354-1.161-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.029 1.294-1.262 1.56-.232.266-.465.299-.863.1-.398-.2-1.681-.619-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.179-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.2-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.685l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.119c.199.266 2.808 4.287 6.804 6.013.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.766-.114 2.354-.962 2.687-1.891.332-.93.332-1.727.232-1.892-.099-.164-.365-.264-.763-.463z"/>
+    </svg>
+    <span class="wa-flotante-texto">¿Te interesa?</span>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
