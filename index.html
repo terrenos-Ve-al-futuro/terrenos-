@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://terrenos-qro-futuro.netlify.app/" />
   <meta property="og:title" content="Terrenos en Venta — Querétaro" />
   <meta property="og:description" content="Lotes en El Marqués, Santa Rosa Jáuregui y más. Posesión inmediata, trato directo con el dueño y crédito disponible." />
-  <meta property="og:image" content="https://terrenos-qro-futuro.netlify.app/images/1.1.jpg" />
+  <meta property="og:image" content="https://terrenos-qro-futuro.netlify.app/images/compartir.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -40,7 +40,7 @@
 
   <!-- HERO -->
   <section class="hero" id="inicio">
-    <div class="hero-bg" style="background-image: url('images/1.1.jpg');"></div>
+    <div class="hero-bg"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Querétaro, México</p>
       <h1 class="hero-titulo">Terrenos con<br><em>visión de futuro</em></h1>
@@ -56,7 +56,7 @@
   <!-- NOSOTROS -->
   <section id="nosotros">
     <div class="nosotros-imagen reveal">
-      <img loading="lazy" src="images/1.1.jpg" alt="Terreno en Querétaro" />
+      <img loading="lazy" src="images/amazcala/foto-1.webp" alt="Terreno en Querétaro" />
     </div>
     <div class="nosotros-texto">
       <p class="section-eyebrow reveal">¿Quiénes somos?</p>
@@ -79,7 +79,7 @@
 
 
   <!-- ================================================
-       MIS TERRENOS (los 3 propios)
+       MIS TERRENOS (categoria: 'propio')
   ================================================= -->
   <section id="terrenos">
     <div class="terrenos-header">
@@ -90,62 +90,8 @@
       <a href="#contacto" class="btn-secundario">Consultar disponibilidad</a>
     </div>
 
-    <div class="terrenos-grid">
-
-      <!-- TARJETA 1: AMAZCALA -->
-      <div class="terreno-card reveal" onclick="abrirModal(0)">
-        <div class="terreno-card-img-wrap">
-          <img loading="lazy" class="terreno-card-img" src="images/p1.png" alt="Plano San Miguel Amazcala" />
-          <span class="terreno-badge">Disponible</span>
-        </div>
-        <div class="terreno-card-body">
-          <h3 class="terreno-nombre">San Miguel Amazcala</h3>
-          <p class="terreno-ubicacion">El Marqués, Querétaro</p>
-          <div class="terreno-features">
-            <span class="feature-tag">120 m²</span>
-            <span class="feature-tag">Posesión inmediata</span>
-            <span class="feature-tag">Alta plusvalía</span>
-          </div>
-          <p class="terreno-sup">$389,000 <span>crédito disponible</span></p>
-        </div>
-      </div>
-
-      <!-- TARJETA 2: PIE DE GALLO -->
-      <div class="terreno-card reveal reveal-delay-1" onclick="abrirModal(1)">
-        <div class="terreno-card-img-wrap">
-          <img loading="lazy" class="terreno-card-img" src="images/p2.jpg" alt="Plano Pie de Gallo" />
-          <span class="terreno-badge">Disponible</span>
-        </div>
-        <div class="terreno-card-body">
-          <h3 class="terreno-nombre">Pie de Gallo</h3>
-          <p class="terreno-ubicacion">Santa Rosa, Querétaro</p>
-          <div class="terreno-features">
-            <span class="feature-tag">120 m²</span>
-            <span class="feature-tag">8 × 15 m</span>
-            <span class="feature-tag">Trato directo</span>
-          </div>
-          <p class="terreno-sup">$355,000 <span>crédito a 6 años</span></p>
-        </div>
-      </div>
-
-      <!-- TARJETA 3: BEGOÑA -->
-      <div class="terreno-card reveal reveal-delay-2" onclick="abrirModal(2)">
-        <div class="terreno-card-img-wrap">
-          <img loading="lazy" class="terreno-card-img" src="images/p3.png" alt="Plano Santa María Begoña" />
-          <span class="terreno-badge">Disponible</span>
-        </div>
-        <div class="terreno-card-body">
-          <h3 class="terreno-nombre">Santa María Begoña</h3>
-          <p class="terreno-ubicacion">El Marqués, Querétaro</p>
-          <div class="terreno-features">
-            <span class="feature-tag">200 m²</span>
-            <span class="feature-tag">Propiedad privada</span>
-            <span class="feature-tag">Zona estratégica</span>
-          </div>
-          <p class="terreno-sup">$270,000 <span>· contado $220,000</span></p>
-        </div>
-      </div>
-
+    <div class="terrenos-grid" id="gridPropios">
+      <!-- Se llena desde js/main.js (lista "terrenos") -->
     </div>
 
     <div class="terrenos-cta reveal" style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(90, 107, 58, 0.08); border-radius: 8px;">
@@ -156,7 +102,7 @@
 
 
   <!-- ================================================
-       OTROS PROYECTOS (3 de otras inmobiliarias)
+       OTROS PROYECTOS (categoria: 'otro')
   ================================================= -->
   <section id="otros" class="seccion-otros">
     <div class="terrenos-header">
@@ -170,62 +116,8 @@
       <a href="#contacto" class="btn-primario">Consultar</a>
     </div>
 
-    <div class="terrenos-grid" style="margin-top:2rem;">
-
-      <!-- TARJETA 4: AMAZCALA 2 (200m²) -->
-      <div class="terreno-card reveal" onclick="abrirModal(3)">
-        <div class="terreno-card-img-wrap">
-          <img loading="lazy" class="terreno-card-img" src="images/4.1.jpg" alt="San Miguel Amazcala 200m²" />
-          <span class="terreno-badge" style="background:var(--verde);">Recién disponible</span>
-        </div>
-        <div class="terreno-card-body">
-          <h3 class="terreno-nombre">San Miguel Amazcala</h3>
-          <p class="terreno-ubicacion">El Marqués, Querétaro</p>
-          <div class="terreno-features">
-            <span class="feature-tag">200 m²</span>
-            <span class="feature-tag">Alta plusvalía</span>
-            <span class="feature-tag">Zona en desarrollo</span>
-          </div>
-          <p class="terreno-sup">$240,000 <span>crédito disponible</span></p>
-        </div>
-      </div>
-
-      <!-- TARJETA 5: LA SOLANA -->
-      <div class="terreno-card reveal reveal-delay-1" onclick="abrirModal(4)">
-        <div class="terreno-card-img-wrap">
-          <img loading="lazy" class="terreno-card-img" src="images/5.1.jpg" alt="La Solana Santa Rosa Jáuregui" />
-          <span class="terreno-badge" style="background:#E74C3C; font-weight:600; font-size:13px;">🔥 OFERTA LIMITADA</span>
-        </div>
-        <div class="terreno-card-body">
-          <h3 class="terreno-nombre">La Solana</h3>
-          <p class="terreno-ubicacion">Santa Rosa Jáuregui, Querétaro</p>
-          <div class="terreno-features">
-            <span class="feature-tag">150 m²</span>
-            <span class="feature-tag">10 × 15 m</span>
-            <span class="feature-tag">Aparta con $5K</span>
-          </div>
-          <p class="terreno-sup">Desde $90,000 <span>· incrementa según m²</span></p>
-        </div>
-      </div>
-
-      <!-- TARJETA 6: TLACOTE EL BAJO -->
-      <div class="terreno-card reveal reveal-delay-2" onclick="abrirModal(5)">
-        <div class="terreno-card-img-wrap">
-          <img loading="lazy" class="terreno-card-img" src="images/6.1.jpg" alt="Tlacote el Bajo" />
-          <span class="terreno-badge" style="background:var(--verde);">Recién disponible</span>
-        </div>
-        <div class="terreno-card-body">
-          <h3 class="terreno-nombre">Tlacote el Bajo</h3>
-          <p class="terreno-ubicacion">Tlacote el Bajo, Querétaro</p>
-          <div class="terreno-features">
-            <span class="feature-tag">2 hectáreas</span>
-            <span class="feature-tag">Precio a tratar</span>
-            <span class="feature-tag">Gran inversión</span>
-          </div>
-          <p class="terreno-sup">$15,500,000 <span>· precio a tratar</span></p>
-        </div>
-      </div>
-
+    <div class="terrenos-grid" id="gridOtros" style="margin-top:2rem;">
+      <!-- Se llena desde js/main.js (lista "terrenos") -->
     </div>
   </section>
 
@@ -239,57 +131,9 @@
         <p class="section-desc">Tres zonas estratégicas en Querétaro con acceso a servicios y alto potencial de plusvalía.</p>
       </div>
 
-      <div class="mapa-bloque reveal">
-        <h3 class="mapa-titulo">San Miguel Amazcala — El Marqués</h3>
-        <div class="mapa-con-foto">
-          <div class="mapa-wrapper mapa-pequeno">
-            <!-- //cambiar — pega el iframe de Google Maps para Amazcala -->
-            <div class="mapa-placeholder">
-              <span style="font-size:1.8rem;">🗺️</span>
-              San Miguel Amazcala
-              <a href="https://goo.gl/maps/wcpbvxoWVT62Tooa6?g_st=aw" target="_blank" rel="noopener" class="btn-mapa-link">Ver en Google Maps →</a>
-            </div>
-          </div>
-          <div class="mapa-foto-lateral">
-            <img loading="lazy" src="images/1.1.jpg" alt="San Miguel Amazcala" />
-          </div>
-        </div>
+      <div id="listaMapas">
+        <!-- Se llena desde js/main.js -->
       </div>
-
-      <div class="mapa-bloque reveal">
-        <h3 class="mapa-titulo">Pie de Gallo — Santa Rosa</h3>
-        <div class="mapa-con-foto">
-          <div class="mapa-wrapper mapa-pequeno">
-            <!-- //cambiar — pega el iframe de Google Maps para Pie de Gallo -->
-            <div class="mapa-placeholder">
-              <span style="font-size:1.8rem;">🗺️</span>
-              Pie de Gallo, Santa Rosa
-              <a href="https://maps.app.goo.gl/xA8v5DUSXx7b4MX47" target="_blank" rel="noopener" class="btn-mapa-link">Ver en Google Maps →</a>
-            </div>
-          </div>
-          <div class="mapa-foto-lateral">
-            <img loading="lazy" src="images/2.1.jpg" alt="Pie de Gallo" />
-          </div>
-        </div>
-      </div>
-
-      <div class="mapa-bloque reveal">
-        <h3 class="mapa-titulo">Santa María Begoña — El Marqués</h3>
-        <div class="mapa-con-foto">
-          <div class="mapa-wrapper mapa-pequeno">
-            <!-- //cambiar — pega el iframe de Google Maps para Begoña -->
-            <div class="mapa-placeholder">
-              <span style="font-size:1.8rem;">🗺️</span>
-              Santa María Begoña
-              <a href="https://maps.app.goo.gl/Ka6xn3qmEria6B579" target="_blank" rel="noopener" class="btn-mapa-link">Ver en Google Maps →</a>
-            </div>
-          </div>
-          <div class="mapa-foto-lateral">
-            <img loading="lazy" src="images/3.1.jpg" alt="Santa María Begoña" />
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -349,13 +193,7 @@
           <div class="form-grupo">
             <label for="terreno">Terreno de interés</label>
             <select id="terreno" name="terreno">
-              <option value="San Miguel Amazcala — $389,000">San Miguel Amazcala — $389,000</option>
-              <option value="Pie de Gallo — $355,000">Pie de Gallo — $355,000</option>
-              <option value="Santa María Begoña — $270,000">Santa María Begoña — $270,000</option>
-              <option value="San Miguel Amazcala 200m² — $240,000">San Miguel Amazcala 200m² — $240,000</option>
-              <option value="La Solana — Desde $90,000">La Solana — Desde $90,000</option>
-              <option value="Tlacote el Bajo — $15,500,000">Tlacote el Bajo — $15,500,000</option>
-              <option value="Más información general">Más información general</option>
+              <!-- Las opciones se generan desde js/main.js -->
             </select>
           </div>
           <div class="form-grupo">
