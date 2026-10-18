@@ -15,7 +15,7 @@
   --verde-claro:#8FA06A;
   --blanco:     #FDFAF5;
   --gris-texto: #3A2E22;
-  --gris-suave: #9E8E78;
+  --gris-suave: #6F604D;
 
   --fuente-titulo: 'Cormorant Garamond', serif;
   --fuente-cuerpo: 'Jost', sans-serif;
@@ -39,7 +39,7 @@ body {
   background-color: var(--blanco);
   color: var(--gris-texto);
   line-height: 1.7;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 img { max-width: 100%; display: block; }
@@ -277,7 +277,7 @@ section { padding: 100px 5%; }
 .section-desc {
   max-width: 560px;
   color: var(--gris-suave);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.8;
 }
 
@@ -316,7 +316,9 @@ section { padding: 100px 5%; }
 }
 
 .nosotros-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
   gap: 2rem;
   margin-top: 2.5rem;
 }
@@ -326,9 +328,12 @@ section { padding: 100px 5%; }
 }
 
 .stat-num {
-  font-family: var(--fuente-titulo);
-  font-size: 2.8rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 2.2rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--tierra);
   line-height: 1;
 }
@@ -449,9 +454,11 @@ section { padding: 100px 5%; }
 }
 
 .terreno-sup {
-  font-family: var(--fuente-titulo);
-  font-size: 1.5rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 1.35rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--tierra);
 }
 
@@ -915,7 +922,7 @@ section { padding: 100px 5%; }
   .modal-body { padding: 1.5rem; }
   .modal-acciones { flex-direction: column; }
 
-  .nosotros-stats { gap: 1rem; }
+  .nosotros-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
 
   .contacto-form { padding: 1.5rem; }
 }
@@ -1077,6 +1084,10 @@ section { padding: 100px 5%; }
 }
 
 .seccion-otros .terreno-ubicacion {
+  color: var(--arena);
+}
+
+.seccion-otros .terreno-sup span {
   color: var(--arena);
 }
 

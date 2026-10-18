@@ -276,6 +276,7 @@ terrenos.forEach((t, i) => {
   selectTerreno.add(new Option(texto, texto));
 });
 selectTerreno.add(new Option('Más información general', 'Más información general'));
+document.getElementById('statTerrenos').textContent = terrenos.length;
 
 // Si no quedan "otros proyectos", se oculta la sección y su link del menú
 if (!gridOtros.children.length) {
