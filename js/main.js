@@ -180,7 +180,7 @@ const terrenos = [
     plano: false,
     pdf: null,
     tarjeta: {
-      etiqueta: 'Recién disponible',
+      etiqueta: 'Inversión',
       etiquetas: ['2 hectáreas', 'Precio a tratar', 'Gran inversión'],
       precio: '$15,500,000',
       nota: '· precio a tratar',
@@ -305,6 +305,7 @@ function abrirModal(index) {
     img.addEventListener('click', () => {
       modalThumbs.querySelectorAll('.modal-galeria-img').forEach(im => im.classList.remove('activo'));
       img.classList.add('activo');
+      abrirVisor(img.src, img.alt);
     });
     modalThumbs.appendChild(img);
   }
@@ -383,7 +384,30 @@ function cerrarModal() {
 
 modalCerrar.addEventListener('click', cerrarModal);
 modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) cerrarModal(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarModal(); });
+
+// Visor de foto ampliada (fotos de la galería y plano)
+const visorFoto    = document.getElementById('visorFoto');
+const visorFotoImg = document.getElementById('visorFotoImg');
+
+function abrirVisor(src, alt) {
+  visorFotoImg.src = src;
+  visorFotoImg.alt = alt || '';
+  visorFoto.classList.add('activo');
+}
+function cerrarVisor() {
+  visorFoto.classList.remove('activo');
+  visorFotoImg.src = '';
+}
+visorFoto.addEventListener('click', cerrarVisor);
+const modalPlano = document.getElementById('modalPlano');
+modalPlano.addEventListener('click', () => abrirVisor(modalPlano.src, modalPlano.alt));
+
+// Escape cierra primero la foto ampliada y después el modal
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  if (visorFoto.classList.contains('activo')) cerrarVisor();
+  else cerrarModal();
+});
 
 // Año actual en el footer
 document.getElementById('anioActual').textContent = new Date().getFullYear();
