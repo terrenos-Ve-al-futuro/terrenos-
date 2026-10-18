@@ -45,10 +45,10 @@ const terrenos = [
     desc: 'Terreno en zona en desarrollo con alta plusvalía. Incluye todos los servicios: agua, luz y drenaje. Cuenta con luminaria instalada. Propiedad privada con posesión inmediata.',
     caracteristicas: [
       'Superficie: 120 m²',
-      'Precio crédito: $370,000 MXN',
+      'Precio crédito: $389,000 MXN',
       'Apartado: $2,000 MXN',
       'Enganche: $23,000 MXN',
-      'Mensualidad: $4,792 MXN',
+      'Mensualidad: $5,056 MXN (72 meses)',
       'Posesión inmediata',
       'Propiedad privada',
       'Agua, luz y drenaje incluidos',
@@ -241,6 +241,7 @@ function abrirModal(index) {
   const modalPdfVisor = document.getElementById('modalPdfVisor');
   if (t.pdf) {
     modalPdfVisor.src = t.pdf;
+    document.getElementById('btnModalPdf').href = t.pdf;
     modalPdfWrap.style.display = 'block';
   } else {
     modalPdfVisor.src = '';
@@ -264,7 +265,6 @@ function abrirModal(index) {
   document.body.style.overflow = 'hidden';
   } catch(e) {
     console.error('Error en modal:', e);
-    alert('Error: ' + e.message);
   }
 }
 
@@ -279,6 +279,18 @@ modalCerrar.addEventListener('click', cerrarModal);
 modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) cerrarModal(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarModal(); });
 
+// Tarjetas accesibles con teclado (Tab + Enter / Espacio)
+document.querySelectorAll('.terreno-card').forEach(card => {
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('role', 'button');
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+  });
+});
+
+// Año actual en el footer
+document.getElementById('anioActual').textContent = new Date().getFullYear();
+
 // Formulario → WhatsApp
 document.getElementById('formContacto').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -288,6 +300,6 @@ document.getElementById('formContacto').addEventListener('submit', (e) => {
   const terreno  = form.terreno.value;
   const mensaje  = form.mensaje.value.trim();
   if (!nombre || !telefono) { alert('Por favor llena los campos obligatorios.'); return; }
-  const texto = `Hola, soy *${nombre}* (Tel: ${telefono}).%0AMe interesa: *${terreno}*.${mensaje ? '%0AMensaje: ' + encodeURIComponent(mensaje) : ''}`;
-  window.open(`https://wa.me/524425949691?text=${texto}`, '_blank');
+  const texto = `Hola, soy *${nombre}* (Tel: ${telefono}).\nMe interesa: *${terreno}*.${mensaje ? '\nMensaje: ' + mensaje : ''}`;
+  window.open(`https://wa.me/524425949691?text=${encodeURIComponent(texto)}`, '_blank');
 });
