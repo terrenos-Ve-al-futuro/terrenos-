@@ -77,6 +77,37 @@ const terrenos = [
     mapa: 'https://goo.gl/maps/wcpbvxoWVT62Tooa6?g_st=aw',
   },
 
+  // ─── AMAZCALA — LOS GAVILANES (propio) ───
+  {
+    id: 'amazcala-gavilanes',
+    categoria: 'propio',
+    nombre: 'Amazcala — Los Gavilanes',
+    ubicacion: 'El Marqués, Querétaro',
+    fotos: 1,
+    plano: true,
+    pdf: null,
+    tarjeta: {
+      etiqueta: 'Nuevo',
+      etiquetas: ['150 m²', '10 × 15 m', 'Título de propiedad'],
+      precio: 'Desde $375,000',
+      nota: '· $4,000 al mes',
+    },
+    desc: 'Terrenos de 10×15 m en San Miguel Amazcala, a un lado del Rancho los Gavilanes. Cuentan con título de propiedad, posesión inmediata y construcción libre. El desarrollo tendrá posteado y cableado eléctrico.',
+    caracteristicas: [
+      'Superficie: 150 m² (10 × 15 m)',
+      'Precio desde: $375,000 MXN (algunos lotes cuestan un poco más)',
+      'Apartado: $2,000 MXN',
+      'Enganche: $20,000 MXN',
+      'Mensualidad: $4,000 MXN (aprox. 88 meses)',
+      'Posesión inmediata',
+      'Título de propiedad',
+      'Construcción libre',
+      'Tendrá posteado y cableado eléctrico',
+    ],
+    videoYT: null,
+    mapa: 'https://maps.app.goo.gl/fGViT7NrXYebeea29',
+  },
+
   // ─── PIE DE GALLO (propio) ───
   {
     id: 'pie-de-gallo',
