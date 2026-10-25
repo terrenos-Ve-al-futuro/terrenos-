@@ -104,6 +104,7 @@ const terrenos = [
       'Construcción libre',
       'Tendrá posteado y cableado eléctrico',
     ],
+    // //cambiar — pon aquí el ID del video de YouTube cuando lo subas (ej. 'sLT_IOHBCTU')
     videoYT: null,
     mapa: 'https://maps.app.goo.gl/fGViT7NrXYebeea29',
   },
@@ -168,6 +169,76 @@ const terrenos = [
     ],
     videoYT: null,
     mapa: 'https://maps.app.goo.gl/Ka6xn3qmEria6B579',
+  },
+
+  // ─── CAMPESTRE BEGOÑA (propio) — APAGADO: faltan fotos y plano ───
+  // Para activarlo: pon las imágenes en images/campestre-begona/ y quita /* y */
+  /*
+  {
+    id: 'campestre-begona',
+    categoria: 'propio',
+    nombre: 'Campestre Begoña',
+    ubicacion: 'El Marqués, Querétaro',
+    fotos: 3,
+    plano: true,
+    pdf: null,
+    tarjeta: {
+      etiqueta: 'Nuevo',
+      etiquetas: ['150 m²', '10 × 15 m', 'Frente a Zibatá'],
+      precio: '$285,000',
+      nota: '· desde $3,600 al mes',
+    },
+    desc: 'Terrenos de 10×15 m en Campestre Begoña, El Marqués, frente a Zibatá. Incluyen servicio de luz, posesión inmediata y construcción libre. Venta a crédito.',
+    caracteristicas: [
+      'Superficie: 150 m² (10 × 15 m)',
+      'Precio: $285,000 MXN',
+      'Apartado: $2,000 MXN',
+      'Enganche: $18,000 MXN',
+      'Mensualidad desde: $3,600 MXN',
+      'A crédito',
+      'Incluye servicio de luz',
+      'Posesión inmediata',
+      'Construcción libre',
+      'Frente a Zibatá',
+    ],
+    // //cambiar — pon aquí el ID del video de YouTube cuando lo subas (ej. 'sLT_IOHBCTU')
+    videoYT: null,
+    mapa: 'https://maps.app.goo.gl/CFnKPfbkZtMbm6A2A',
+  },
+  */
+
+  // ─── CAMPESTRE ATONGO (propio) ───
+  {
+    id: 'campestre-atongo',
+    categoria: 'propio',
+    nombre: 'Campestre Atongo',
+    ubicacion: 'El Marqués, Querétaro',
+    fotos: 2,
+    plano: true,
+    pdf: null,
+    tarjeta: {
+      etiqueta: 'Nuevo',
+      etiquetas: ['135 a 200 m²', '$1,850 por m²', 'A 20 min de Zibatá'],
+      precio: 'Desde $249,750',
+      nota: '· $3,200 al mes',
+    },
+    desc: 'Terrenos campestres en Atongo, El Marqués, a 20 minutos de Zibatá y a 420 m de la carretera a Atongo, frente al Gotcha Ramírez. Lotes de 135 a 200 m² con postes y cableado eléctrico, posesión inmediata y crédito a 72 meses.',
+    caracteristicas: [
+      'Lotes de 135 a 200 m²',
+      'Precio por m²: $1,850 MXN',
+      'Lote de 135 m²: $249,750 MXN',
+      'Lote de 200 m²: $370,000 MXN',
+      'Apartado: $2,000 MXN',
+      'Enganche: $18,000 MXN',
+      'Mensualidad desde: $3,200 MXN',
+      'Crédito a 72 meses',
+      'Incluye postes y cableado eléctrico',
+      'Posesión inmediata',
+      'A 20 min de Zibatá, frente al Gotcha Ramírez',
+    ],
+    // //cambiar — pon aquí el ID del video de YouTube cuando lo subas (ej. 'sLT_IOHBCTU')
+    videoYT: null,
+    mapa: 'https://maps.app.goo.gl/VSKZ8amAhNbF4NFK7',
   },
 
   // ─── SAN MIGUEL AMAZCALA 200 m² (otro proyecto) ───
