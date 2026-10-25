@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
 //  - id:        nombre de la carpeta en images/<id>/
 //  - categoria: 'propio' (Mis terrenos) u 'otro' (Otros proyectos)
 //  - tarjeta:   lo que se ve en la tarjeta de la página
+//               (imagen: número de foto de portada, 'plano', o nada = foto 1)
 //  - Para quitar un terreno, borra su bloque { ... }
 // ===================================================
 const WHATSAPP = '524425949691';
@@ -55,7 +56,6 @@ const terrenos = [
     plano: true,
     pdf: 'docs/amazcala.pdf',
     tarjeta: {
-      imagen: 'plano',
       etiquetas: ['120 m²', 'Posesión inmediata', 'Alta plusvalía'],
       precio: '$389,000',
       nota: 'crédito disponible',
@@ -119,7 +119,6 @@ const terrenos = [
     plano: true,
     pdf: 'docs/pie-de-gallo.pdf',
     tarjeta: {
-      imagen: 'plano',
       etiquetas: ['120 m²', '8 × 15 m', 'Trato directo'],
       precio: '$355,000',
       nota: 'crédito a 6 años',
@@ -150,7 +149,7 @@ const terrenos = [
     plano: true,
     pdf: 'docs/begona.pdf',
     tarjeta: {
-      imagen: 'plano',
+      imagen: 2,
       etiquetas: ['200 m²', 'Propiedad privada', 'Zona estratégica'],
       precio: '$270,000',
       nota: '· contado $220,000',
@@ -321,7 +320,7 @@ function crearTarjeta(t, index, posicion) {
   });
 
   const tj = t.tarjeta;
-  const imagen = tj.imagen === 'plano' ? rutaPlano(t) : rutaFoto(t, 1);
+  const imagen = tj.imagen === 'plano' ? rutaPlano(t) : rutaFoto(t, tj.imagen || 1);
   const titulo = tj.titulo || t.nombre;
   const etiqueta = tj.etiqueta || 'Disponible';
 
@@ -355,7 +354,7 @@ function crearMapa(t) {
         </div>
       </div>
       <div class="mapa-foto-lateral">
-        <img loading="lazy" src="${rutaFoto(t, 1)}" alt="${t.nombre}" />
+        <img loading="lazy" src="${rutaFoto(t, typeof t.tarjeta.imagen === 'number' ? t.tarjeta.imagen : 1)}" alt="${t.nombre}" />
       </div>
     </div>`;
   return bloque;
